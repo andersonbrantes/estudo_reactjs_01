@@ -6,19 +6,47 @@
     <script src="build/react.js"></script>
     <script src="build/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <style>
+      .message {
+        background: #f2f2f2;
+        padding: 5px;
+        text-align: center;
+      }
+
+      .message h3 {
+        color: green;
+      }
+
+      .message p {
+        color: red;
+      }
+    </style>
   </head>
   <body>
     <div id="example"></div>
     <script type="text/babel">
 
       var HelloMessage = React.createClass({
+        propTypes: {
+          title: React.PropTypes.string.isRequired,
+          children: React.PropTypes.object.isRequired,
+          author: React.PropTypes.string.isRequired
+        },
         render: function() {
-          return <div>Hello {this.props.name}</div>;
+          var title = this.props.title;
+          var text = this.props.children;
+          var author = this.props.author;
+
+          return <div className="message">
+            <h3>{title}</h3>
+            <p>{text}</p>
+            <span>{author}</span>
+          </div>;
         }
       });
 
       ReactDOM.render(
-        <HelloMessage name="Anderson" />,
+        <HelloMessage title="Curso ReactJS" author="Anderson"><strong>teste de texto</strong></HelloMessage>,
         document.getElementById('example')
       );
     </script>
