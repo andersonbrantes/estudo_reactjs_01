@@ -10,8 +10,15 @@
   <body>
     <div id="example"></div>
     <script type="text/babel">
+
+      var HelloMessage = React.createClass({
+        render: function() {
+          return <div>Hello {this.props.name}</div>;
+        }
+      });
+
       ReactDOM.render(
-        <h1>Hello, world!</h1>,
+        <HelloMessage name="Anderson" />,
         document.getElementById('example')
       );
     </script>
