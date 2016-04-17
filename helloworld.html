@@ -26,6 +26,24 @@
     <div id="example"></div>
     <script type="text/babel">
 
+      var Button = React.createClass({
+        propTypes: {
+          author: React.PropTypes.string.isRequired
+        },
+        show(n1, n2) {
+          var result = n1 * n2;
+          var author = this.props.author;
+
+          alert(n1 + " * " + n2 + " = " + result + " by " + author);
+        },
+        render() {
+          var n1 = 10;
+          var n2 = 30;
+
+          return <button onClick={this.show.bind(this, n1, n2)}>Show</button>;
+        }
+      });
+
       var HelloMessage = React.createClass({
         propTypes: {
           title: React.PropTypes.string.isRequired,
@@ -37,9 +55,13 @@
           var text = this.props.children;
           var author = this.props.author;
 
+          if(!text) {
+            text = "Mensagem padrão";
+          }
+
           return <div className="message">
             <h3>{title}</h3>
-            <p>{text}</p>
+            <p><Button author={author}/></p>
             <span>{author}</span>
           </div>;
         }
