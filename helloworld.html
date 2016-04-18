@@ -26,6 +26,24 @@
     <div id="example"></div>
     <script type="text/babel">
 
+      var Form = React.createClass({
+        save() {
+          var name = this.refs.name;
+          var sname = this.refs.sname;
+
+          alert(name.value + " " + sname.value);
+        },
+        render() {
+          return <div>
+            <hr/>
+            <p><input ref="name" type="text" placeholder="Nome"/></p>
+            <p><input ref="sname" type="text" placeholder="SobreNome"/></p>
+            <p><button onClick={this.save}>SAVE</button></p>
+            <hr/>
+          </div>;
+        }
+      });
+
       var Button = React.createClass({
         propTypes: {
           author: React.PropTypes.string.isRequired
@@ -62,6 +80,7 @@
           return <div className="message">
             <h3>{title}</h3>
             <p><Button author={author}/></p>
+            <Form />
             <span>{author}</span>
           </div>;
         }
