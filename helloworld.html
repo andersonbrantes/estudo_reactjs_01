@@ -20,6 +20,11 @@
       .message p {
         color: red;
       }
+
+      .error {
+        background: red;
+        color: #fff !important;
+      }
     </style>
   </head>
   <body>
@@ -44,8 +49,17 @@
         render() {
           return <div>
             <hr/>
-            <p><input ref="name" type="text" placeholder="Nome"/></p>
-            <p><input ref="sname" type="text" placeholder="SobreNome"/></p>
+            <h3 className="error">teste</h3>
+            <p>
+              <input ref="name" type="text" placeholder="Nome"/>
+              <br />
+              { this.state.name }
+            </p>
+            <p>
+              <input ref="sname" type="text" placeholder="SobreNome"/>
+              <br />
+              { this.state.sname }
+            </p>
             <p><button onClick={this.save}>SAVE</button></p>
             <hr/>
           </div>;
