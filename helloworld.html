@@ -6,6 +6,7 @@
     <script src="build/react.js"></script>
     <script src="build/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/umbrella/2.0.4/umbrella.min.js"></script>
     <style>
       .message {
         background: #f2f2f2;
@@ -41,6 +42,9 @@
 
           if(name.value != '' && sname.value != '') {
             this.setState({ name: name.value, sname: sname.value });
+            u('.error').text('');
+          } else {
+            u('.error').text('Preencha todos os campos!');
           }
 
           name.value += ' ';
@@ -49,7 +53,7 @@
         render() {
           return <div>
             <hr/>
-            <h3 className="error">teste</h3>
+            <h3 className="error"></h3>
             <p>
               <input ref="name" type="text" placeholder="Nome"/>
               <br />
