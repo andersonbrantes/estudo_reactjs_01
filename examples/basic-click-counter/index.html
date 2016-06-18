@@ -30,17 +30,18 @@
     <script type="text/babel">
       var Counter = React.createClass({
         getInitialState: function () {
-          return { count: 0 };
+          return { count: 5, texto: "" };
         },
         handleClick: function () {
           this.setState({
-            count: this.state.count + 1,
+            count: this.state.count + 10,
+            texto: "- Tá clicando"
           });
         },
         render: function () {
           return (
             <button onClick={this.handleClick}>
-              Click me! Number of clicks: {this.state.count}
+              Click me! Number of clicks: {this.state.count} { this.state.texto }
             </button>
           );
         }
